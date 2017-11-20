@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky - {{ dog.username }}{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    	<h3>I like hummus</h3>
+        <p><img src="https://s3.amazonaws.com/dogdisco/discoCloseUp.jpg" width=225px height=300px></img></p>
+    <div class="profile-header">
+        <h1>{{ dog.username }}</h1>
+        {% if dog.name or dog.location %}
+        <p>
+            {% if dog.name %}{{ dog.name }}<br>{% endif %}
+            {% if dog.location %}
+                From <a href="http://maps.google.com/?q={{ dog.location }}">{{ dog.location }}</a><br>
+            {% endif %}
+        </p>
+        {% endif %}
+        {% if current_user.is_administrator() %}
+        <p><a href="mailto:{{ dog.email }}">{{ dog.email }}</a></p>
+    </div>
+</div>
+{% endif %}
+<div class="col-md-4">
+    
+    <br>
+    <p>New dog? <a href="{{ url_for('auth.register_dog') }}">Click here to register</a>.</p>
+    <br>
+    <p>New human? <a href="{{ url_for('auth.register') }}">Click here to register a person</a>.</p>
+</div>
+
+{% endblock %}
+    

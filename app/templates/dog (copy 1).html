@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Flasky - {{ dog.username }}{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    
+    <div class="profile-header">
+        <h1>{{ dog.username }}</h1>
+        {% if dog.name or dog.location %}
+        <p>
+            {% if dog.name %}{{ dog.name }}<br>{% endif %}
+            {% if dog.location %}
+                From <a href="http://maps.google.com/?q={{ dog.location }}">{{ dog.location }}</a><br>
+            {% endif %}
+        </p>
+        {% endif %}
+        {% if current_user.is_administrator() %}
+        <p><a href="mailto:{{ dog.email }}">{{ dog.email }}</a></p>
+        {% endif %}
+        {% if dog.about_me %}<p>{{ dog.about_me }}</p>{% endif %}
+        <p>Member since {{ moment(dog.member_since).format('L') }}. Last seen {{ moment(dog.last_seen).fromNow() }}.</p>
+        <p>{{ dog.posts.count() }} blog posts. {{ dog.comments.count() }} comments.</p>
+        <p>
+            {% if current_user.can(Permission.FOLLOW) and dog != current_user %}
+                {% if not current_user.is_following(dog) %}
+                <a href="{{ url_for('.follow', username=dog.username) }}" class="btn btn-primary">Follow</a>
+                {% else %}
+                <a href="{{ url_for('.unfollow', username=dog.username) }}" class="btn btn-default">Unfollow</a>
+                {% endif %}
+            {% endif %}
+            <a href="{{ url_for('.followers', username=dog.username) }}">Followers: <span class="badge">{{ dog.followers.count() - 1 }}</span></a>
+            <a href="{{ url_for('.followed_by', username=dog.username) }}">Following: <span class="badge">{{ dog.followed.count() - 1 }}</span></a>
+            {% if current_user.is_authenticated and dog != current_user and dog.is_following(current_user) %}
+            | <span class="label label-default">Follows you</span>
+            {% endif %}
+        </p>
+        <p>
+            {% if dog == current_user %}
+            <a class="btn btn-default" href="{{ url_for('.edit_profile') }}">Edit Profile</a>
+            {% endif %}
+            {% if current_user.is_administrator() %}
+            <a class="btn btn-danger" href="{{ url_for('.edit_profile_admin', id=dog.id) }}">Edit Profile [Admin]</a>
+            {% endif %}
+        </p>
+    </div>
+</div>
+<h3>Posts by {{ dog.username }}</h3>
+{% include '_posts.html' %}
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.dog', username=dog.username) }}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}NLP Demo{% endblock %}
+
+{% block page_content %}
+
+ <div class="speech">
+            <h3>
+                Press the <a href="#btn_query">Query</a> button to issue a voice query.
+                You might be prompted to allow microphone access.
+            </h3>
+            <p>You can issue voice queries of the following forms as of now.</p>
+            <h3>News</h3>
+            <ul>
+                <li>Give me news related to French cheese from the Guardian.</li>
+                <li>What are the latest updates on Star Wars Episode VIII in the Guardian?</li>
+                <li>Fetch me the latest news on artificial intelligence.</li>
+                <li>What is the latest on particle physics in the New York Times?</li>
+            </ul>
+            <p>
+                <i>
+                    Note: The current version supports NY Times and The Guardian as sources. Unknown sources will
+                    default to NY Times. Also, the source is expected to be mentioned at the end of the query. You could
+                    say NY Times or nyt instead of the full name.
+                </i>
+            </p>
+            <h3>Knowledge</h3>
+            <ul>
+                <li>John Deere</li>
+                <li>What is physics?</li>
+                <li>Who was Joan of Arc?</li>
+                <li>What is an RDF triple?</li>
+                <li>Tell me something about Star Wars: A New Hope</li>
+            </ul>
+            <p>
+                <i>
+                    Note: The current version uses Wikipedia API for knowledge queries. There might be an
+                    occasional lengthy lag.
+                </i>
+            </p>
+            <textarea style="width: 600px;font-family: Calibri;font-size:x-large" name="q" id="transcript"
+                      placeholder="Your query will appear here after you speak." rows="2" readonly="True"></textarea>
+            <br>
+            <input id="btn_query" type="button" onclick="startDictation()" value="Query"
+                   style="font-family: Calibri;" />
+            <img src="static/loader.gif" width="100px" align="left" style="float: left" hidden="True" id="loader" />
+            <br><br>
+            <h2 class="speech">Results</h2>
+            <textarea style="width: 600px;font-family: Calibri;font-size:x-large" id="output" rows="2" placeholder="Results will appear here."
+                      readonly="True"></textarea>
+            <input id="btn_speak" type="button" value="Speak" onclick="btnClick()" style="font-family: Calibri;" />
+
+    </div>
+
+{% endblock %}

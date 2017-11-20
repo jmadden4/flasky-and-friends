@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Watch my Zookeeper Instance{% endblock %}
+
+
+{% block page_content %}
+<div class="page-header">
+    	<h3>I like hummus</h3>
+        <!-- <p><img src="https://s3.amazonaws.com/dogdisco/discoCloseUp.jpg" width=225px height=300px></img></p> 
+    	<iframe src="http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regression.html" width=800px height=1000px ></iframe> -->
+	<!-- <button onclick="ConsumerLauncherButton()">Start a Consumer</button> -->
+	<!-- <p><a id="ConsumerLauncher2" href="#">Start a Consumer without the button</a></p> -->
+
+
+
+</div>
+
+	<div class="table-responsive">
+	 <table class="table">
+	  <tr>
+  	   <td class="active">yo diskey</td>
+	   <!-- <td class="success">...</td>
+           <td class="warning">...</td>
+           <td class="danger">...</td> -->
+	  </tr>
+	 <tr>
+	   <td><p><a id="GetMessage" href="#">Get Kafka Message</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaMessagefromGetter"></p> </td>
+	  </tr>
+	<tr>       
+
+	 <tr>
+	   <td><p><a id="StartKafkaProducer" href="#">Start Kafka Producer</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaProducerDetails"></p> </td>
+	  </tr>
+	<tr>
+	   <td><p><a id="StartKafkaConsumer" href="#">Start Kafka Consumer</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaConsumerDetails"></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p><a id="SendKafkaMessage" href="#">Click to send a Message via producer</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaMessage"></p> </td>
+	  </tr>	 
+	<tr>
+	   <td class="warning"><p><a id="StopKafkaConsumer" href="#">Stop Kafka Consumer</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaStopConsumerDetails"></p> </td>
+	  </tr>	
+	<tr>
+	   <td class="warning"><p><a id="StopKafkaProducer" href="#">Stop Kafka Producer</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaStopProducerDetails"></p> </td>
+	  </tr>	 
+	<tr>
+	   <td><p><a id="ListKafkaTopics2" href="#">List the Kafka Topics Available Right Now</a></p> </td>
+	  </tr>
+	  <tr>
+	   <td><p id="ShowKafkaTopics"></p> </td>
+	  </tr>
+  	 </table>
+	</div>
+
+		
+
+ 
+
+
+
+<script>  
+
+
+/*
+	function ConsumerLauncherButton() {
+	    alert("Hello Mr Bear!");
+            console.log('hi bubbles');
+	
+	
+	$.ajax({
+	  type: "POST",
+	  url: "/home/joe/workspace/flasky/tests/test_kafka.py"
+	  //data: { param: text}
+	}).done(function( o ) {
+	   // do something
+	console.log(o); 
+	});
+
+} */
+	/*    $('#ConsumerLauncher').click(function(){
+       alert("hey dighey");
+    });*/
+
+    	
+
+/*
+var ws = new WebSocket('ws://192.168.1.255:9092');
+ws.onopen = function () {
+   console.log('Connected');
+};
+ws.onmessage = function () {
+   console.log('New message...');
+};
+ws.send('Some message...'); */
+
+
+/*
+//https://stackoverflow.com/questions/32288722/call-python-function-from-js 
+
+	function runPyScript(input){
+        var jqXHR = $.ajax({
+            type: "POST",
+            url: "/watchZookeeper",
+            async: false,
+            data: { myZKdata: input }
+        });
+
+        return jqXHR.responseText;
+    }
+
+    $('#submitbutton').click(function(){
+        datatosend = 'this is my matrix';
+        result = runPyScript(datatosend);
+        console.log('Got back ' + result);
+    });
+
+
+
+*/
+
+</script>
+
+{% endblock %}
