@@ -30,8 +30,10 @@ See [Miguel's blog about SQLAlchemy](https://blog.miguelgrinberg.com/post/the-fl
 ```bash
 python manage.py db 
 ```
-Start Kafka Utilities:
+Start Kafka Utilities
+
 **Required**: You'll need to start zookeeper and create a topic if you want to interact with this module.
+
 *If you're like me, you may find it frustrating that Kafka requires so many pre-req steps. Check out [the /kafka-utils folder](kafka-utils) to take a shortcut starting the utilities*
 
 Start the Server:
