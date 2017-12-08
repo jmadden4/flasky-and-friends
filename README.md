@@ -1,5 +1,5 @@
-# Flasky-and-Friends
-======
+### Welcome to Flasky-and-Friends
+*Thank you for visiting!*
 
 Miguel Grinberg's [Flasky](https://github.com/miguelgrinberg/flasky) helped inspire this FrankenStack repository that has allowed me to test & learn an evergrowing set of features. 
 
@@ -40,5 +40,4 @@ python manage.py runserver
 ```
 Open browser & go to: http://127.0.0.1:5000
 
-Want to add new expressions to the Chat Bot? Update the intents.json file!
-(see [/kafka-utils](/kafka-utils) if you'd like to take a shortcut getting your kafka environment prepared
+
