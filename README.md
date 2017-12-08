@@ -1,12 +1,12 @@
-Flasky-and-Friends
+# Flasky-and-Friends
 ======
 
-This repository contains the source code examples for Miguel Grinberg's O'Reilly book [Flask Web Development](http://www.flaskbook.com).
+Miguel Grinberg's [Flasky](https://github.com/miguelgrinberg/flasky) helped inspire this FrankenStack repository that has allowed me to test & learn an evergrowing set of features. 
 
-The commits and tags in this repository were carefully created to match the sequence in which concepts are presented in the book. Please read the section titled "How to Work with the Example Code" in the book's preface for instructions.
+Flasky relies upon a SQLAlchemy database that has been modified to allow users to add dogs :dog::dog::dog: to their account profile. 
 
-
-Flasky's friends include
-* Kafka via python-kafka
+Flasky and friends also includes
+* Kafka via python-kafka (see [/kafka-utils](/kafka-utils) for some 
 * Natural Language Processing via Delbot (https://github.com/shaildeliwala/delbot)
 * Spark via pyspark (...coming soon!)
+
